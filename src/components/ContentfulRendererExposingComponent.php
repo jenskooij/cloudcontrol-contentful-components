@@ -45,7 +45,7 @@ class ContentfulRendererExposingComponent extends BaseComponent
 
         $this->contentfulRenderer = new Renderer();
 
-        $hyperlinkRenderer = new HyperlinkRenderer($this->hyperlinkField, $this->contentType);
+        $hyperlinkRenderer = new HyperlinkRenderer($this->hyperlinkField, $this->contentType, $this->urlPrefix);
         $this->addNodeRenderer($hyperlinkRenderer);
 
         $this->pushNodeRenderers();
