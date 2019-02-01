@@ -15,7 +15,7 @@
   },
   "autoload": {
     "psr-4": {
-      "\\components\\": "src/components"
+      "components\\": "src/components"
     }
   },
   "license": "MIT"
