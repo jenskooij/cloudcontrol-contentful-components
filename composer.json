@@ -16,7 +16,7 @@
   "autoload": {
     "psr-4": {
       "components\\": "src/components",
-      "getcloudcontrol\\cloudcontrolContentfulComponents": "src"
+      "getcloudcontrol\\cloudcontrolContentfulComponents\\": "src"
     }
   },
   "license": "MIT"
