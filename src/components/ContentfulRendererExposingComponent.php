@@ -18,9 +18,9 @@ class ContentfulRendererExposingComponent extends BaseComponent
     const PARAM_URL_PREFIX = 'urlPrefix';
     const PARAM_CONTENTFUL_RENDERER = 'contentfulRenderer';
 
-    protected $hyperlinkField = 'slug';
-    protected $contentType = 'page';
-    protected $urlPrefix;
+    protected $hyperlinkField = array('slug');
+    protected $contentType = array('page');
+    protected $urlPrefix = array();
 
     /**
      * @var Renderer
@@ -45,8 +45,10 @@ class ContentfulRendererExposingComponent extends BaseComponent
 
         $this->contentfulRenderer = new Renderer();
 
-        $hyperlinkRenderer = new HyperlinkRenderer($this->hyperlinkField, $this->contentType, $this->urlPrefix);
-        $this->addNodeRenderer($hyperlinkRenderer);
+        foreach ($this->contentType as $i => $contentType) {
+            $hyperlinkRenderer = new HyperlinkRenderer(isset($this->hyperlinkField[$i]) ? $this->hyperlinkField[$i] : 'slug', $contentType, isset($this->urlPrefix[$i]) ? $this->urlPrefix[$i] : null);
+            $this->addNodeRenderer($hyperlinkRenderer);
+        }
 
         $this->pushNodeRenderers();
 
@@ -81,15 +83,15 @@ class ContentfulRendererExposingComponent extends BaseComponent
         $parameters = $this->parameters;
 
         if (isset($parameters[self::PARAM_HYPERLINK_FIELD])) {
-            $this->hyperlinkField = $parameters[self::PARAM_HYPERLINK_FIELD];
+            $this->hyperlinkField = explode(',', $parameters[self::PARAM_HYPERLINK_FIELD]);
         }
 
         if (isset($parameters[self::PARAM_CONTENT_TYPE])) {
-            $this->contentType = $parameters[self::PARAM_CONTENT_TYPE];
+            $this->contentType = explode(',', $parameters[self::PARAM_CONTENT_TYPE]);
         }
 
         if (isset($parameters[self::PARAM_URL_PREFIX])) {
-            $this->urlPrefix = $parameters[self::PARAM_URL_PREFIX];
+            $this->urlPrefix = explode(',', $parameters[self::PARAM_URL_PREFIX]);
         }
     }
 
