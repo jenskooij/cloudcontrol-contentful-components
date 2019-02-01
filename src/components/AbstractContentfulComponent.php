@@ -11,6 +11,7 @@ use CloudControl\Cms\services\ValuelistService;
 use CloudControl\Cms\storage\Storage;
 use Contentful\Delivery\Client;
 use Contentful\Delivery\Query;
+use getcloudcontrol\cloudcontrolContentfulComponents\ContentfulQueryParameters;
 use RuntimeException;
 
 abstract class AbstractContentfulComponent extends CachableBaseComponent

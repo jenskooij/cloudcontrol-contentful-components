@@ -3,7 +3,7 @@
  * Created by Jens on 23-12-2018.
  */
 
-namespace components;
+namespace getcloudcontrol\cloudcontrolContentfulComponents;
 
 
 class ContentfulQueryParameters

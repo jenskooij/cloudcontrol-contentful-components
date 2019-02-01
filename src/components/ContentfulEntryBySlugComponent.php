@@ -7,6 +7,7 @@ namespace components;
 
 
 use CloudControl\Cms\storage\Storage;
+use getcloudcontrol\cloudcontrolContentfulComponents\ContentfulQueryParameters;
 
 class ContentfulEntryBySlugComponent extends AbstractContentfulComponent
 {
