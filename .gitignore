@@ -1,0 +1,15 @@
+#intellij
+.idea
+
+vendor
+
+#dev
+/index.php
+/config.json
+/templates
+/storage
+/js
+/css
+/public
+/.htaccess
+/components
