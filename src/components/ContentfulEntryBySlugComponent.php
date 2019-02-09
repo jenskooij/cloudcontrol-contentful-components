@@ -23,7 +23,11 @@ class ContentfulEntryBySlugComponent extends AbstractContentfulComponent
 
         if (count($entries) === 0) {
             header("HTTP/1.0 404 Not Found");
+            if ($this->ranFromMultiComponent()) {
+                $this->getMultiComponent()->template = '404';
+            }
             $this->template = '404';
+            return;
         } else {
             $page_entry = current($entries->getItems());
             $this->parameters['page_entry'] = $page_entry;
